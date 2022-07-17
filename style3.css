@@ -1,0 +1,50 @@
+ul.info>li {
+    list-style: none;
+    color: darkgreen;
+    /* color has applies on everything in parent elmeents */
+
+
+}
+
+
+/* select all li element wihtin those li under ul class info */
+ul.info>li li {
+    list-style: decimal;
+}
+
+ul.info>li li:nth-child(2) {
+    list-style: none;
+}
+
+
+ol li a {
+    text-decoration: none;
+}
+
+ol li a[target='_blank'] {
+    color: darkolivegreen;
+}
+
+ol li a[href='https://www.google.com/'] {
+    background-color: rgb(131, 188, 97);
+}
+
+/* select those link containing word google*/
+ol li a[href*='google'] {
+    background-color: rgb(92, 239, 6);
+}
+
+/* select those link start with https */
+ol li a[href^="https"] {
+    background-color: rgb(170, 170, 248);
+}
+
+/* select those link ends with .com.au/ */
+ol li a[href$=".com.au/"] {
+    background-color: rgb(54, 54, 255);
+}
+
+/* select those link containing google & ends with .com.au/ */
+ol li a[href*="google"][href$=".com.au/"] {
+    font-style: italic;
+}
