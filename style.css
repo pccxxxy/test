@@ -1,6 +1,10 @@
 /* command / for css comment  */
 
 /* set canvas size */
+* {
+    box-sizing: border-box;
+}
+
 html,
 body {
     box-sizing: border-box;
@@ -52,6 +56,69 @@ div {
     /* top-down margin doesn't work with <span></span> inline elment*/
     /* So, change inline element to block / inline-blokc element */
     margin: 50px;
-    border: 10px dashed gold;
+    border: 1px dashed gold;
     /* once set canvas size, everything will try to squash to fit within the canvas */
+}
+
+table,
+th,
+td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+}
+
+.mytable_class {
+    background-color: rgba(255, 166, 0, 0.13);
+}
+
+.img {
+    width: 30%
+        /* 30% 30% of the total page width */
+}
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    /* viewable width height. 300px by default and not viewable*/
+    display: flex;
+    flex-direction: column;
+    /* arrange elements vertically */
+    align-items: center;
+    justify-content: center;
+}
+
+section {
+    width: 50%;
+    /* 50% width of its parent element */
+    min-width: 300px;
+    max-width: 600px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    /* pading can be covered by bg-color */
+
+
+}
+
+input[type=text],
+input[type=password],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    /* set canvas size */
+    /* everything fit within canvas - section ele width 50% */
+}
+
+input[type=submit] {
+    width: 50%;
+    background-color: #4caf50;
+    color: #fff;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
 }

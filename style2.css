@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+
+
+}
+
+#block {
+    display: flex;
+}
+
+#A,
+#B {
+    width: 50px;
+    height: 10px;
+    border: 2px solid #000;
+    margin: 10px;
+}
+
+#B {
+    width: 100px;
+}
