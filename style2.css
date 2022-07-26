@@ -1,29 +1,96 @@
+/* Clear default margin and padding to avoid confusion */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Reset to avoid using default width height 300px */
 html,
 body {
     width: 100vw;
     height: 100vh;
-
-
 }
 
+/* 
+Container of flexbox
+1. Every flexbox should have one
+2. All changes of flexbox depends on it
+ */
 #block {
+    height: 100%;
+
     display: flex;
+    /* 1. Arranges everything in flex-driection: row by default
+       2. Back to normal <div></div> column direction without it 
+    */
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    /* Without flex-wrap, every item within flexbox container will try to squash to be on one line*/
+
+    justify-content: flex-end;
+    justify-content: flex-start;
+    justify-content: center;
+
+    /* align-content: center; */
+
+    /* align-items: center; */
+
 }
 
-#A,
-#B {
-    width: 50px;
-    height: 10px;
+/* 
+.A,
+.B {
+    
     border: 2px solid #000;
-    margin: 10px;
+    margin: 1px;
+    text-align: center;
+
+    width: 100%;
+} */
+
+/* .B {
+    width: 100px;
+} */
+
+
+
+
+.A,
+.B,
+.C {
+    /* width: 50%;  */
+    /* set max limits for flex-grow flex-shrink */
+
+    border: 2px solid #000;
+    margin: 1px;
+    text-align: center;
+
+    /* flex-grow: 1; */
+    /* flex-shrink: 1; */
+
+    height: 50px;
+
 }
 
-#B {
-    width: 100px;
+
+.B {
+    width: 80%;
+    flex-grow: 2;
+}
+
+.C {
+    width: 30%;
+    flex-shrink: 3;
+}
+
+
+
+.B {
+    width: 200px;
+}
+
+.B {
+    align-self: end;
 }

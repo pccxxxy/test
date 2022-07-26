@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins:ital,wght@0,200;0,400;1,300;1,400:1,800&family=Source+Sans+Pro&display=swap');
+
+/* css custom property */
+:root {
+    /* font-size: 10px; */
+    /* root pseudo-class, apply globally
+    1. create variable:    --name-your-own-variable: normal css value;
+    2. assign variable:  normal css property: var(--name-your-own-variable);
+    */
+    --overlay-color: #03a9f4;
+    --background-color: #000;
+    --text-color: #ffffff;
+    --menu-width: 300px;
+    --font-weight: bold;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* restrict everything within 300px width */
+    font-family: 'Poppins', sans-serif;
+}
+
+.showcase {
+    /*  position: relative
+    1. position follows its direct parent element*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 60px 100px;
+
+    z-index: 99;
+    /* set as the most top layer. Set original cover before sliding menu */
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+
+    text-transform: uppercase;
+
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+}
+
+.showcase header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .showcase header { */
+/* position: absolute 
+    1. doesn't flow with other elements
+    2. position follows its direct parent element whose position is other than static
+    3. usual case: dirparent {position: relative} child {position: absolute}
+     */
+/* position: absolute;
+
+    left: 0;
+    top: 0;  */
+/* priortise left: top: if others is not specified*/
+
+/* }  */
+
+.toggle {
+    background: url('src/menu.svg');
+    width: 60px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: center;
+    cursor: pointer;
+
+    filter: invert(1);
+    /* Because icon color is black. Need to invert color to its contrast color(white) to show*/
+}
+
+.showcase video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+.showcase .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay-color);
+    mix-blend-mode: overlay;
+    z-index: -1;
+}
+
+.text h1 {
+    font-size: 5rem;
+    /* rem
+    1. 'r', refers to default font-size:16px in :root setting
+    2. 5rem, 5 times 16px default root font-size 
+    2. specifying font-size:16px in root: can change this rem starting point
+    3. this rem can be applied on padding width etc.
+    */
+
+    font-weight: 800;
+    line-height: 1em;
+    /* em 
+   1. 'em' refers to the current customized font-size 
+   2. 1em, 1 times current customized font-size 
+   */
+}
+
+.text h2 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1em;
+}
+
+.text p {
+    font-size: 1.1rem;
+    margin: 20px 0;
+    max-width: 700px;
+}
+
+.text a {
+    display: inline-block;
+    /* to avoid element flowing after letter-spacing hoving effect*/
+    font-size: 1rem;
+    background-color: var(--text-color);
+    padding: 10px 30px;
+    text-transform: uppercase;
+    color: var(--background-color);
+    margin-top: 10px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.2s;
+    /* transition without hovering */
+}
+
+.text a:hover {
+    letter-spacing: 6px;
+    transition: 0.2s;
+    /* transition with hovering */
+}
+
+.social {
+    display: flex;
+}
+
+.social li {
+    list-style: none;
+}
+
+.social li a {
+    display: inline-block;
+    /* for bounding text with icon */
+    filter: invert(1);
+    transition: 0.1s;
+}
+
+.social li a:not(last-child) {
+    margin-right: 20px;
+    /* to avoid adding margin-right 20 px to the last child among a child elements*/
+}
+
+.social li a:hover {
+    transform: translateY(-10px);
+    transition: 0.9s;
+}
+
+
+/* For JS sliding menu */
+.menu {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: var(--menu-width);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu ul {
+    list-style: none;
+}
+
+.menu li a {
+    color: var(--overlay-color);
+    text-decoration: none;
+    font-size: 24px;
+}
+
+/* when .showcase is selected in html and .active is toggled on by js*/
+.showcase.active {
+    right: var(--menu-width);
+    width: calc(100% - var(--menu-width));
+}
+
+/* 2 classes togetehr has higher priority than 1 class */
+
+.toggle.active {
+    background-image: url('src/close.svg');
+}
+
+.toggle,
+.showcase {
+    transition: 0.5s;
+}
+
+
+/* For Responsive */
+@media(max-width: 798px) {
+    .showcase {
+        padding: 40px;
+    }
+
+    .text h1 {
+        font-size: 3rem;
+    }
+
+    .text h2 {
+        font-size: 2rem;
+    }
+}
