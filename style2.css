@@ -24,7 +24,7 @@ Container of flexbox
     /* 1. Arranges everything in flex-driection: row by default
        2. Back to normal <div></div> column direction without it 
     */
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
 
     /* Without flex-wrap, every item within flexbox container will try to squash to be on one line*/
@@ -35,7 +35,7 @@ Container of flexbox
 
     /* align-content: center; */
 
-    /* align-items: center; */
+    align-items: center;
 
 }
 
@@ -59,23 +59,24 @@ Container of flexbox
 
 .A,
 .B,
-.C {
+.C,
+.D,
+.E,
+.F {
     /* width: 50%;  */
     /* set max limits for flex-grow flex-shrink */
-
-    border: 2px solid #000;
-    margin: 1px;
-    text-align: center;
 
     /* flex-grow: 1; */
     /* flex-shrink: 1; */
 
     height: 50px;
-
+    border: 2px solid #000;
+    margin: 1px;
+    text-align: center;
 }
 
 
-.B {
+/* .B {
     width: 80%;
     flex-grow: 2;
 }
@@ -83,14 +84,32 @@ Container of flexbox
 .C {
     width: 30%;
     flex-shrink: 3;
+} */
+
+
+
+.A {
+    align-self: flex-start;
+    order: 1;
 }
-
-
 
 .B {
     width: 200px;
+    align-self: flex-end;
+    order: 1;
+    /* all elements have order 0 by default. Arranged by the order the html order in default */
 }
 
-.B {
-    align-self: end;
+.C {
+    align-self: stretch;
+    order: 3;
+}
+
+.E {
+    order: -1;
+    background-color: green;
+}
+
+.F {
+    order: -2;
 }
